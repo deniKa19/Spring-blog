@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="fragments/header :: header('All Posts')"></head>
+<!--EDIT THIS PAGE-->
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container">
+    <h1>Posts:</h1>
+
+    <div th:each="post : ${postList}">
+        <div class="row">
+            <div class="col-4">
+                <div class="card m-3" style="width: 20rem;">
+                    <!--<img th:src="${post.image}" class="card-img-top" alt="computer" />-->
+
+                    <div class="card-body">
+                        <h3 class="fancy-serif">Title: <span th:text="${post.title}"></span></h3>
+                        <p>Body: <span th:text="${post.body}"></span></p>
+                        <a th:href="@{'/posts/' + ${post.id}}" class="btn btn-sm btn-outline-secondary btn-block">Read Post</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="fragments/header :: header('Single Post')"></head>
+
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<h1>Create Post</h1>
+
+<div class="container">
+
+    <form th:action="@{/posts/create}" th:method="POST" th:object="${post}">
+    <h3>Title</h3>
+    <input th:value="${title}" name="title" id="title"/>
+    <h3>Body</h3>
+    <input th:value="${body}" name="body" id="body"/>
+        <button type="submit">Save Post</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/header :: header('Edit Post')"></head>
+
+
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <form th:action="@{/posts/{id}/edit(id=${post.id})}" th:method="POST" th:object="${post}">
+       <div class="form-group">
+        <label for="title">Title:</label>
+        <input th:field="*{title}" name="title" class="form-control" id="title"/>
+       </div>
+       <div class="form-group">
+        <label for="body">Body:</label>
+        <!--the * symbol is what makes the information populate inside of the input-->
+           <textarea th:field="*{body}" name="body" class="form-control" id="body"></textarea>
+       </div>
+        <!--this input uploads an image-->
+        <!--<input type="file" name="file" />-->
+        <button type="submit">Save Post</button>
+
+    </form>
+
+
+</body>
+</html>
